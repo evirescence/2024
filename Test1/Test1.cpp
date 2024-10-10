@@ -3,7 +3,10 @@
 using namespace std;
 
 bool check_if_int(string s) {
-    return (s.find_first_not_of("0123456789") == s.npos);
+    if (s[0] == '-') {
+        if ((count(s.begin(), s.end(), '-') > 1) or (s.length() == 1)) return 0;
+    };
+    return (s.find_first_not_of("-.0123456789") == s.npos);
 }
 
 
